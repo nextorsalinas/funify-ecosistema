@@ -1,0 +1,13 @@
+# Global Ignores
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Vercel setup
+.vercel
