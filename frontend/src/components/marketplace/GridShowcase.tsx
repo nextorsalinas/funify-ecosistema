@@ -1,45 +1,20 @@
 import ItemCard from './ItemCard';
 
-const mockItems = [
-  {
-    id: 1,
-    type: 'service' as const,
-    title: 'Show de Magia Espectacular',
-    price: 2500,
-    imageSrc: '/images/magician.png',
-    agencyName: 'Agencia Pispifiestas',
-    rating: 4.9
-  },
-  {
-    id: 2,
-    type: 'product' as const,
-    title: 'Pastel Temático 3 Pisos',
-    price: 1200,
-    imageSrc: '/images/cake.png',
-    agencyName: 'Dulces Momentos',
-    rating: 4.8
-  },
-  {
-    id: 3,
-    type: 'service' as const,
-    title: 'Castillo Inflable Gigante',
-    price: 1800,
-    imageSrc: '/images/castle.png',
-    agencyName: 'Aventuras Extremas',
-    rating: 5.0
-  },
-  {
-    id: 4,
-    type: 'service' as const,
-    title: 'Animación con Payasos',
-    price: 1500,
-    imageSrc: 'https://images.unsplash.com/photo-1533222533923-a5a41dc563e4?auto=format&fit=crop&w=800&q=80',
-    agencyName: 'Agencia Pispifiestas',
-    rating: 4.7
-  },
-];
+async function fetchItems() {
+  try {
+    const res = await fetch('http://127.0.0.1:8000/api/marketplace/items', { cache: 'no-store' });
+    if (!res.ok) return [];
+    const json = await res.json();
+    return json.data || [];
+  } catch (error) {
+    console.error('Error fetching items from backend:', error);
+    return [];
+  }
+}
 
-export default function GridShowcase() {
+export default async function GridShowcase() {
+  const items = await fetchItems();
+
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="flex justify-between items-end mb-10">
@@ -56,9 +31,23 @@ export default function GridShowcase() {
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {mockItems.map((item) => (
-          <ItemCard key={item.id} {...item} />
-        ))}
+        {items.length > 0 ? items.map((item: any) => (
+          <ItemCard 
+            key={item.id} 
+            id={item.id}
+            type={item.type.toLowerCase() as 'service' | 'product'}
+            title={item.name}
+            price={item.price}
+            imageSrc={item.image_url}
+            agencyName={item.agency_name}
+            rating={item.agency_rating}
+          />
+        )) : (
+          <div className="col-span-full flex flex-col items-center justify-center py-10">
+             <p className="text-[#001F5C] font-bold text-xl mb-2">Conectando al servidor mágico...</p>
+             <p className="text-gray-500">Si esto tarda, asegúrate de que el Backend de Laravel esté corriendo (`php artisan serve`).</p>
+          </div>
+        )}
       </div>
       
       <button className="w-full mt-10 bg-white border-2 border-[#001F5C] text-[#001F5C] font-bold py-4 rounded-xl sm:hidden flex justify-center items-center gap-2">

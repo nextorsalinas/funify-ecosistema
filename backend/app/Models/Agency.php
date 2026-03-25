@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Agency extends Model
 {
-    //
+    protected $fillable = ['user_id', 'name', 'description', 'logo_url', 'rating'];
+    
+    public function services() {
+        return $this->hasMany(Service::class);
+    }
+    
+    public function physicalProducts() {
+        return $this->hasMany(PhysicalProduct::class);
+    }
 }

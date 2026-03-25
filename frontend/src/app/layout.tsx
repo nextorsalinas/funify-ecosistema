@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Funify",
+  title: "Funifay",
   description: "Encuentra magos, pasteles, inflables y mucho más para tus fiestas.",
 };
 

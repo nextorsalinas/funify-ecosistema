@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('agencies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('logo_url')->nullable();
+            $table->decimal('rating', 3, 2)->default(5.00);
             $table->timestamps();
         });
     }

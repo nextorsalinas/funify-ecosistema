@@ -16,7 +16,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <h1 className="text-3xl font-black text-white tracking-tighter">
-              Funify<span className="text-[#FFDB00]">.</span>
+              Funifay<span className="text-[#FFDB00]">.</span>
             </h1>
           </Link>
 
