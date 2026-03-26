@@ -1,3 +1,4 @@
+import React from "react";
 import GridShowcase from "@/components/marketplace/GridShowcase";
 import HeroBanner from "@/components/marketplace/HeroBanner";
 

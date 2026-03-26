@@ -33,7 +33,7 @@ export default function DashboardPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Hola, Agencia Fiesta 👋</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Hola, Pispifiestas 👋</h1>
           <p className="text-gray-500 mt-1">Aquí tienes un resumen del desempeño de tu negocio hoy.</p>
         </div>
         <button className="flex items-center px-4 py-2.5 bg-[#FFDB00] text-[#001F5C] font-bold rounded-lg shadow hover:bg-[#FFDB00]/90 transition-colors transform hover:-translate-y-0.5">
