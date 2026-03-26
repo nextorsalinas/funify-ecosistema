@@ -31,7 +31,15 @@ export default async function GridShowcase() {
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {items.length > 0 ? items.map((item: any) => (
+        {items.length > 0 ? items.map((item: {
+          id: string | number;
+          type: string;
+          name: string;
+          price: number;
+          image_url: string;
+          agency_name: string;
+          agency_rating: number;
+        }) => (
           <ItemCard 
             key={item.id} 
             id={item.id}

@@ -1,3 +1,7 @@
+'use client';
+
+import React from 'react';
+
 export default function HeroBanner() {
   return (
     <div className="relative w-full bg-[#FFDB00] pt-10 pb-40 sm:pb-48 px-4 sm:px-6 lg:px-8 flex justify-center items-center isolate">
@@ -22,8 +26,11 @@ export default function HeroBanner() {
         </h3>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="relative flex-1">
-            <select className="bg-white border border-gray-300 text-gray-800 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all appearance-none cursor-pointer">
-              <option value="" disabled selected hidden>Estado *</option>
+            <select 
+              defaultValue=""
+              className="bg-white border border-gray-300 text-gray-800 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all appearance-none cursor-pointer"
+            >
+              <option value="" disabled hidden>Estado *</option>
               <option>Estado de México</option>
               <option>Ciudad de México</option>
               <option>Jalisco</option>
@@ -35,8 +42,11 @@ export default function HeroBanner() {
           </div>
           
           <div className="relative flex-1">
-            <select className="bg-white border border-gray-300 text-gray-800 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all appearance-none cursor-pointer">
-              <option value="" disabled selected hidden>Ciudad *</option>
+            <select 
+              defaultValue=""
+              className="bg-white border border-gray-300 text-gray-800 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all appearance-none cursor-pointer"
+            >
+              <option value="" disabled hidden>Ciudad *</option>
               <option>Toluca</option>
               <option>Metepec</option>
               <option>Guadalajara</option>

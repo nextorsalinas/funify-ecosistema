@@ -6,9 +6,7 @@ import {
   ShoppingBag, 
   BarChart3, 
   Settings, 
-  LogOut,
-  Menu,
-  X
+  LogOut
 } from 'lucide-react';
 
 export default function DashboardLayout({

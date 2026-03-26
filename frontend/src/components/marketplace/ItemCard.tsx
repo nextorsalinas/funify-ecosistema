@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 interface ItemCardProps {
+  id?: string | number;
   type: 'service' | 'product';
   title: string;
   price: number;
