@@ -1,0 +1,11 @@
+{
+  "name": "funify-ecosistema",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm run start",
+    "dev": "cd frontend && npm run dev",
+    "postinstall": "cd frontend && npm install"
+  }
+}
