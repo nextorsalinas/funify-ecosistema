@@ -14,14 +14,14 @@ class MarketplaceController extends Controller
         // Traer todos los servicios con su agencia
         $services = Service::with('agency')->get()->map(function($item) {
             return [
-                'id' => 'srv_' . $item->id,
-                'name' => $item->name,
-                'description' => $item->description,
-                'price' => (float) $item->price,
-                'image_url' => $item->image_url,
-                'category' => $item->category,
-                'type' => 'Service',
-                'agency_name' => $item->agency->name ?? 'Independiente',
+                'id'            => 'srv_' . $item->id,
+                'name'          => $item->title,
+                'description'   => $item->description,
+                'price'         => (float) $item->price,
+                'image_url'     => $item->image_url,
+                'category'      => $item->category,
+                'type'          => 'Service',
+                'agency_name'   => $item->agency->name ?? 'Independiente',
                 'agency_rating' => (float) ($item->agency->rating ?? 5.0),
             ];
         });
@@ -29,15 +29,15 @@ class MarketplaceController extends Controller
         // Traer todos los productos físicos con su agencia
         $products = PhysicalProduct::with('agency')->get()->map(function($item) {
             return [
-                'id' => 'prd_' . $item->id,
-                'name' => $item->name,
-                'description' => $item->description,
-                'price' => (float) $item->price,
-                'image_url' => $item->image_url,
-                'category' => $item->category,
-                'type' => 'Product',
-                'stock' => $item->stock,
-                'agency_name' => $item->agency->name ?? 'Independiente',
+                'id'            => 'prd_' . $item->id,
+                'name'          => $item->title,
+                'description'   => $item->description,
+                'price'         => (float) $item->price,
+                'image_url'     => $item->image_url,
+                'category'      => $item->category,
+                'type'          => 'Product',
+                'stock'         => $item->stock,
+                'agency_name'   => $item->agency->name ?? 'Independiente',
                 'agency_rating' => (float) ($item->agency->rating ?? 5.0),
             ];
         });
