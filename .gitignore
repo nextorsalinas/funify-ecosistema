@@ -10,16 +10,14 @@
 .env.*.local
 
 # npm/next.js
-node_modules
-/.pnp
-.pnp.js
+node_modules/
 .next/
-/out/
-/build
+out/
+build/
 next-env.d.ts
 *.tsbuildinfo
 
-# Laravel (Backend subfolder should have its own or inherit)
+# Laravel (Backend subfolder)
 backend/vendor/
 backend/.env
 backend/storage/*.key
@@ -33,6 +31,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
-
-# Keep the frontend folder empty if it survives
-frontend/
