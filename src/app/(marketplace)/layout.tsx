@@ -7,7 +7,7 @@ export default function MarketplaceLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="pt-[116px] md:pt-[116px]">
+    <div className="pt-[64px] md:pt-[116px]">
       <Header />
       {children}
     </div>

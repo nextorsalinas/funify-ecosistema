@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Search, User, ShoppingCart } from 'lucide-react';
+import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const navLinks = [
     "Inicio", "Cumpleaños", "Ocasiones", "Pasteles y Botanas", 
     "Personalizados", "Regalos", "Dulces", "Inflables"
@@ -14,12 +16,20 @@ export default function Header() {
       <div className="bg-[#001F5C] w-full px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 md:gap-8">
           
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <h1 className="text-3xl font-black text-white tracking-tighter">
-              Funifay<span className="text-[#FFDB00]">.</span>
-            </h1>
-          </Link>
+          {/* Logo & Menu Toggle */}
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={() => setIsMenuOpen(true)}
+              className="p-1 -ml-1 text-white md:hidden hover:bg-white/10 rounded-md transition-colors"
+            >
+              <Menu size={28} />
+            </button>
+            <Link href="/" className="flex-shrink-0">
+              <h1 className="text-2xl xs:text-3xl font-black text-white tracking-tighter transition-all">
+                Funifay<span className="text-[#FFDB00]">.</span>
+              </h1>
+            </Link>
+          </div>
 
           {/* Search Bar */}
           <div className="flex-1 max-w-4xl hidden sm:block relative">
@@ -68,17 +78,49 @@ export default function Header() {
         </div>
       </nav>
       
-      {/* Mobile Search Bar - Visible only on small screens */}
-      <div className="bg-[#001F5C] w-full px-4 pb-3 sm:hidden shadow-inner">
-        <div className="relative">
-          <input 
-            type="text" 
-            placeholder="¿Fiesta? Encuentra aquí..." 
-            className="w-full rounded-full pl-5 pr-10 py-2.5 text-sm font-medium text-[#001F5C] focus:outline-none border-none placeholder:text-gray-400"
-          />
-          <button className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 text-[#001F5C] opacity-70">
-            <Search size={16} />
-          </button>
+      {/* Mobile Sidebar Overlay */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 z-[60] md:hidden transition-opacity backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Sidebar Menu */}
+      <div className={`fixed top-0 left-0 bottom-0 w-[280px] bg-white z-[70] md:hidden transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} shadow-2xl`}>
+        <div className="flex flex-col h-full">
+          <div className="p-6 bg-[#001F5C] flex items-center justify-between">
+            <h2 className="text-2xl font-black text-white tracking-tighter">
+              Funifay<span className="text-[#FFDB00]">.</span>
+            </h2>
+            <button 
+              onClick={() => setIsMenuOpen(false)}
+              className="p-1 text-white/80 hover:text-white"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <nav className="flex-1 overflow-y-auto py-6">
+            <ul className="px-6 space-y-4">
+              {navLinks.map((link) => (
+                <li key={link}>
+                  <Link 
+                    href="#" 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-lg font-bold text-[#001F5C] hover:text-[#FFDB00] transition-colors border-b border-gray-50 pb-2"
+                  >
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="p-6 border-t border-gray-100 bg-gray-50">
+            <button className="w-full flex items-center justify-center gap-2 bg-[#001F5C] text-white font-bold py-3 rounded-xl hover:bg-[#001540] transition-colors">
+              <User size={20} />
+              Mi Cuenta
+            </button>
+          </div>
         </div>
       </div>
     </header>
