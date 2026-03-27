@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "NEXT_PUBLIC_API_URL=https://pruebas.funifay.com/backend/public npm --prefix frontend install && NEXT_PUBLIC_API_URL=https://pruebas.funifay.com/backend/public npm --prefix frontend run build",
-    "start": "npm --prefix frontend run start",
+    "build": "NEXT_PUBLIC_API_URL=https://pruebas.funifay.com/backend/public npm --prefix frontend install && NEXT_PUBLIC_API_URL=https://pruebas.funifay.com/backend/public npm --prefix frontend run build && npx shx rm -rf .next public && npx shx cp -r frontend/.next . && npx shx cp -r frontend/public .",
+    "start": "NEXT_PUBLIC_API_URL=https://pruebas.funifay.com/backend/public npm --prefix frontend run start",
     "dev": "npm --prefix frontend run dev",
     "postinstall": "npm --prefix frontend install"
   }
