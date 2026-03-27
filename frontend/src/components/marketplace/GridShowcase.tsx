@@ -1,7 +1,11 @@
 import ItemCard from './ItemCard';
 
 async function fetchItems() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (!apiUrl) {
+    console.warn('NEXT_PUBLIC_API_URL is missing. Skipping backend fetch.');
+    return [];
+  }
   try {
     const res = await fetch(`${apiUrl}/api/marketplace/items`, { cache: 'no-store' });
     if (!res.ok) return [];
