@@ -1,5 +1,7 @@
 import React from "react";
 import GridShowcase from "@/components/marketplace/GridShowcase";
+export const dynamic = 'force-dynamic';
+
 import HeroBanner from "@/components/marketplace/HeroBanner";
 
 export default function Home() {
