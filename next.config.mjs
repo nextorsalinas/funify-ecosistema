@@ -1,11 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // tu configuración actual (output ya está sin standalone)
-  optimizeFonts: false,
-
-  // <-- NUEVO: permite imágenes de Unsplash
   images: {
-    domains: ['images.unsplash.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        port: '8000',
+        pathname: '/storage/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '8000',
+        pathname: '/storage/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dev.funifay.com',
+        pathname: '/backend/public/storage/**',
+      },
+    ],
   },
 };
 
