@@ -6,9 +6,9 @@ import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const navLinks = [
-    "Inicio", "Cumpleaños", "Ocasiones", "Pasteles y Botanas", 
+    "Inicio", "Cumpleaños", "Ocasiones", "Pasteles y Botanas",
     "Personalizados", "Regalos", "Dulces", "Inflables"
   ];
 
@@ -17,10 +17,10 @@ export default function Header() {
       {/* Top Header - Navy Blue */}
       <div className="bg-[#001F5C] w-full px-4 sm:px-6 lg:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between md:gap-8">
-          
+
           {/* Mobile: Left Action (Menu) | Desktop: Logo */}
           <div className="flex items-center md:hidden">
-            <button 
+            <button
               onClick={() => setIsMenuOpen(true)}
               className="p-1 -ml-1 text-white hover:bg-white/10 rounded-md transition-colors"
             >
@@ -47,9 +47,9 @@ export default function Header() {
 
           {/* Search Bar (Desktop) */}
           <div className="flex-1 max-w-4xl hidden sm:block relative mx-4">
-            <input 
-              type="text" 
-              placeholder="¿Fiesta? Encuentra aquí: dulces, taquiza, magos, payasos, inflables, regalos…" 
+            <input
+              type="text"
+              placeholder="¿Fiesta? Encuentra aquí: dulces, taquiza, magos, payasos, inflables, regalos…"
               className="w-full rounded-full pl-6 pr-14 py-2.5 text-[15px] font-medium text-[#001F5C] focus:outline-none focus:ring-4 focus:ring-[#FFDB00]/50 border-none placeholder:text-gray-400 shadow-inner"
             />
             <button className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-gray-100 rounded-full text-[#001F5C] hover:bg-gray-200 transition-colors cursor-pointer">
@@ -80,8 +80,8 @@ export default function Header() {
           <ul className="flex items-center justify-between py-3.5">
             {navLinks.map((link) => (
               <li key={link}>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-[13px] lg:text-[14px] font-bold text-[#001F5C] hover:text-[#FFDB00] transition-colors capitalize whitespace-nowrap"
                 >
                   {link}
@@ -91,10 +91,10 @@ export default function Header() {
           </ul>
         </div>
       </nav>
-      
+
       {/* Mobile Sidebar Overlay */}
       {isMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/60 z-[60] md:hidden transition-opacity backdrop-blur-sm"
           onClick={() => setIsMenuOpen(false)}
         />
@@ -107,7 +107,7 @@ export default function Header() {
             <h2 className="text-2xl font-black text-white tracking-tighter">
               Funifay<span className="text-[#FFDB00]">.</span>
             </h2>
-            <button 
+            <button
               onClick={() => setIsMenuOpen(false)}
               className="p-1 text-white/80 hover:text-white"
             >
@@ -118,8 +118,8 @@ export default function Header() {
             <ul className="px-6 space-y-4">
               {navLinks.map((link) => (
                 <li key={link}>
-                  <Link 
-                    href="#" 
+                  <Link
+                    href="#"
                     onClick={() => setIsMenuOpen(false)}
                     className="block text-lg font-bold text-[#001F5C] hover:text-[#FFDB00] transition-colors border-b border-gray-50 pb-2"
                   >

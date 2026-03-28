@@ -8,7 +8,7 @@ export default function HeroBanner() {
       {/* Decorative Elements */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] rounded-full bg-white/20 blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-10 w-[400px] h-[400px] rounded-full bg-[#001F5C]/10 blur-3xl -z-10"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10 text-center flex flex-col items-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#001F5C] leading-[1.05] mb-6 max-w-4xl tracking-tighter shadow-sm drop-shadow-sm">
           Toda la magia y diversión <br className="hidden sm:block" />
@@ -26,7 +26,7 @@ export default function HeroBanner() {
         </h3>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="relative flex-1">
-            <select 
+            <select
               defaultValue=""
               className="bg-white border border-gray-300 text-gray-800 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all appearance-none cursor-pointer"
             >
@@ -40,9 +40,9 @@ export default function HeroBanner() {
               ▼
             </div>
           </div>
-          
+
           <div className="relative flex-1">
-            <select 
+            <select
               defaultValue=""
               className="bg-white border border-gray-300 text-gray-800 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all appearance-none cursor-pointer"
             >
@@ -57,12 +57,12 @@ export default function HeroBanner() {
             </div>
           </div>
 
-          <input 
-            type="date" 
+          <input
+            type="date"
             className="flex-1 bg-white border border-gray-300 text-gray-500 text-lg rounded-xl focus:ring-4 focus:ring-[#FFDB00]/30 focus:border-[#FFDB00] block w-full px-5 py-4 font-semibold outline-none transition-all"
             placeholder="Fecha de entrega"
           />
-          
+
           <button className="bg-[#e91e63] hover:bg-pink-700 text-white font-black text-lg rounded-xl px-8 py-4 flex-none md:min-w-[200px] shadow-lg transition-transform transform hover:-translate-y-1">
             Ver regalos
           </button>
